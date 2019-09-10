@@ -9,7 +9,7 @@ class Counter extends Component {
 
             <div className="select-container">
                 {/* icon used for replacing default select styles */}
-                <FontAwesomeIcon icon={faSortDown} className="select-arrow" />
+                <FontAwesomeIcon aria-hidden="true" icon={faSortDown} className="select-arrow" />
 
                 <label className="visually-hidden" htmlFor="times">Enter a value for this day</label>
                 <select 

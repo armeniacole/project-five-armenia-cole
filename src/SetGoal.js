@@ -52,7 +52,7 @@ class SetGoal extends Component {
                             <div className="select-container">
                                 <label htmlFor="goalAmount">How many times per week?</label>
                                 {/* icon to replace default select styling */}
-                                <FontAwesomeIcon icon={faSortDown} className="goal-select-arrow" />
+                                <FontAwesomeIcon aria-hidden="true" icon={faSortDown} className="goal-select-arrow" />
                                 <select
                                     name="goalAmount"
                                     onChange={this.props.updateGoal}

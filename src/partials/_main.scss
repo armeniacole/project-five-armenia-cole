@@ -245,8 +245,9 @@ header {
 		border: 2px solid $main;
 		border-radius: 5px;
 
-		span {
+		.week-title {
 			font-family: 'Work Sans', sans-serif;
+			display: block;
 			text-transform: uppercase;
 			color: $main;
 			font-size: 0.8rem;

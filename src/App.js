@@ -192,11 +192,11 @@ class App extends Component {
       if (weekState === 0) {
         return
       } else if (weekState < this.state.goalAmount) {
-        return <p>You have {this.state.goalAmount - weekState} more time(s) reach this weeks goal</p>
+        return <span>You have {this.state.goalAmount - weekState} more time(s) reach this weeks goal</span>
       } else if (weekState == this.state.goalAmount) {
-        return <p>Congrats! You have meet your goal for this week!</p>
+        return <span>Congrats! You have meet your goal for this week!</span>
       } else if (weekState > this.state.goalAmount) {
-        return <p>You have surpassed your goal!</p>
+        return <span>You have surpassed your goal!</span>
       }
     }
 
@@ -209,9 +209,9 @@ class App extends Component {
           {this.state.user ? <button onClick={this.logout}>Log Out</button> : <button onClick={this.login}>Log In</button>}
         </header>
         {/* Current Goal */}
-        <div>
+        <section>
           <h2>Your goal is to <span>{this.state.userGoal}</span> : <span>{this.state.goalAmount}</span> times a week!</h2>
-        </div>
+        </section>
         {/* Set/Update goal - shown on click of button in header */}
         {!this.state.isHidden && <SetGoal
           goalState={this.state.goalAmount}
@@ -256,10 +256,10 @@ class App extends Component {
           </section>
             {/* progress message takes the state produced by addWeekly - runs the comparison and renders the returned message to the page */}
           <section className="results wrapper">
-            <p><span>Week One:</span> {progressMessage(this.state.weekOne)}</p>
-            <p><span>Week Two:</span> {progressMessage(this.state.weekTwo)}</p>
-            <p><span>Week Three:</span> {progressMessage(this.state.weekThree)}</p>
-            <p><span>Week Four:</span> {progressMessage(this.state.weekFour)}</p>
+            <p><span className="week-title">Week One:</span> {progressMessage(this.state.weekOne)}</p>
+            <p><span className="week-title">Week Two:</span> {progressMessage(this.state.weekTwo)}</p>
+            <p><span className="week-title">Week Three:</span> {progressMessage(this.state.weekThree)}</p>
+            <p><span className="week-title">Week Four:</span> {progressMessage(this.state.weekFour)}</p>
             <button onClick={this.handleClear}>Clear Tracked Data</button>
           </section>
         </div>
