@@ -203,65 +203,67 @@ class App extends Component {
     return (
       <div className="App">
         {/* Header - is a flex container*/}
-        <header className="wrapper">
-          <h1>(re)solution</h1>
-          <button onClick={this.toggleHidden.bind(this)}>Set/Update Goal</button>
-          {this.state.user ? <button onClick={this.logout}>Log Out</button> : <button onClick={this.login}>Log In</button>}
-        </header>
-        {/* Current Goal */}
-        <section>
-          <h2>Your goal is to <span>{this.state.userGoal}</span> : <span>{this.state.goalAmount}</span> times a week!</h2>
-        </section>
-        {/* Set/Update goal - shown on click of button in header */}
-        {!this.state.isHidden && <SetGoal
-          goalState={this.state.goalAmount}
-          goalString={this.state.userGoal}
-          updateGoal={this.handleChange}
-          toggleHidden={this.toggleHidden}
-          toggle={this.state.isHidden}
-          user={this.state.user}
-          userID={this.state.userID}
-          className="wrapper"
-        />}
-
-        <p className="instructions wrapper">Make your goal a habit! For each day you complete your activity select how many times you did it. Check the progress section to see how you are doing. Please log in if you want to save your data.</p>
-        {/* div to flex main content on large screens */}
-        <div className="flex-main wrapper">
-          {/* Tracker is a css grid */}
-          <section className="tracker">
-            <p>Mon</p>
-            <p>Tue</p>
-            <p>Wed</p>
-            <p>Thur</p>
-            <p>Fri</p>
-            <p>Sat</p>
-            <p>Sun</p>
-            {/* select elements made by mapping an array inside another mapped array and then rendering the Counter Component - which is then rendered into css grid */}
-            {
-              this.state.month.map((week, weekIndex) => {
-                return (
-                  week.map((day, dayIndex) => {
-                    return <Counter
-                      key={weekIndex + dayIndex}
-                      dayIndex={dayIndex}
-                      weekIndex={weekIndex}
-                      trackerFunction={this.trackerValue}
-                      value={this.state.month[weekIndex][dayIndex]}
-                    />
-                  })
-                )
-              })
-
-            }
+        <div className="content">
+          <header className="wrapper">
+            <h1>(re)solution</h1>
+            <button onClick={this.toggleHidden.bind(this)}>Set/Update Goal</button>
+            {this.state.user ? <button onClick={this.logout}>Log Out</button> : <button onClick={this.login}>Log In</button>}
+          </header>
+          {/* Current Goal */}
+          <section>
+            <h2>Your goal is to <span>{this.state.userGoal}</span> : <span>{this.state.goalAmount}</span> times a week!</h2>
           </section>
-            {/* progress message takes the state produced by addWeekly - runs the comparison and renders the returned message to the page */}
-          <section className="results wrapper">
-            <p><span className="week-title">Week One:</span> {progressMessage(this.state.weekOne)}</p>
-            <p><span className="week-title">Week Two:</span> {progressMessage(this.state.weekTwo)}</p>
-            <p><span className="week-title">Week Three:</span> {progressMessage(this.state.weekThree)}</p>
-            <p><span className="week-title">Week Four:</span> {progressMessage(this.state.weekFour)}</p>
-            <button onClick={this.handleClear}>Clear Tracked Data</button>
-          </section>
+          {/* Set/Update goal - shown on click of button in header */}
+          {!this.state.isHidden && <SetGoal
+            goalState={this.state.goalAmount}
+            goalString={this.state.userGoal}
+            updateGoal={this.handleChange}
+            toggleHidden={this.toggleHidden}
+            toggle={this.state.isHidden}
+            user={this.state.user}
+            userID={this.state.userID}
+            className="wrapper"
+          />}
+  
+          <p className="instructions wrapper">Make your goal a habit! For each day you complete your activity select how many times you did it. Check the progress section to see how you are doing. Please log in if you want to save your data.</p>
+          {/* div to flex main content on large screens */}
+          <div className="flex-main wrapper">
+            {/* Tracker is a css grid */}
+            <section className="tracker">
+              <p>Mon</p>
+              <p>Tue</p>
+              <p>Wed</p>
+              <p>Thur</p>
+              <p>Fri</p>
+              <p>Sat</p>
+              <p>Sun</p>
+              {/* select elements made by mapping an array inside another mapped array and then rendering the Counter Component - which is then rendered into css grid */}
+              {
+                this.state.month.map((week, weekIndex) => {
+                  return (
+                    week.map((day, dayIndex) => {
+                      return <Counter
+                        key={weekIndex + dayIndex}
+                        dayIndex={dayIndex}
+                        weekIndex={weekIndex}
+                        trackerFunction={this.trackerValue}
+                        value={this.state.month[weekIndex][dayIndex]}
+                      />
+                    })
+                  )
+                })
+  
+              }
+            </section>
+              {/* progress message takes the state produced by addWeekly - runs the comparison and renders the returned message to the page */}
+            <section className="results wrapper">
+              <p><span className="week-title">Week One:</span> {progressMessage(this.state.weekOne)}</p>
+              <p><span className="week-title">Week Two:</span> {progressMessage(this.state.weekTwo)}</p>
+              <p><span className="week-title">Week Three:</span> {progressMessage(this.state.weekThree)}</p>
+              <p><span className="week-title">Week Four:</span> {progressMessage(this.state.weekFour)}</p>
+              <button onClick={this.handleClear}>Clear Tracked Data</button>
+            </section>
+          </div>
         </div>
        
         <footer>

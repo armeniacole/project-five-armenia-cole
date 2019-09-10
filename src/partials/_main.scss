@@ -283,10 +283,13 @@ header {
 }
 
 // footer styles
+.content {
+	padding-bottom: 50px;
+}
+
 footer {
 	background: $main;
-	position: fixed;
-    left: 0;
+	position: absolute;
     bottom: 0;
     width: 100%;
 	p {
