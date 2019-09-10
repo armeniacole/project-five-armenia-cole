@@ -3,9 +3,16 @@ import './App.scss';
 import firebase from './firebase';
 import SetGoal from './SetGoal';
 import Counter from './Counter';
+import posed from 'react-pose';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
+
+const Item = posed.div({
+  open: { height: 'auto', opacity: 1, flip: true },
+  closed: { height: '1px', opacity: 0, flip: true }
+});
+
 
 class App extends Component {
 
@@ -23,6 +30,7 @@ class App extends Component {
       weekFour: "",
       // for toggle
       isHidden: true,
+      isVisible: true,
       // for auth
       user: null,
       userID: ""
@@ -41,12 +49,13 @@ class App extends Component {
 
 
   // toggles goal setting section on Set/Update goal button
-  toggleHidden() {
-    this.setState({
-      isHidden: !this.state.isHidden
-    })
-  }
+  // toggleHidden() {
+  //   this.setState({
+  //     isHidden: !this.state.isHidden
+  //   })
+  // }
 
+  toggleHidden = () => this.setState(prevState => ({ isHidden: !prevState.isHidden }))
 
   componentDidMount() {
     
@@ -187,6 +196,8 @@ class App extends Component {
 
   render() {
 
+    const { isVisible } = this.state;
+
     // runs the comparison for the total completed vs goal and assigns the message to be rendered
     const progressMessage = (weekState) => {
       if (weekState === 0) {
@@ -222,7 +233,9 @@ class App extends Component {
           user={this.state.user}
           userID={this.state.userID}
           className="wrapper"
+          pose={this.state.isVisible ? 'visible' : 'hidden'}
         />}
+        {console.log(this.state.isHidden)}
 
         <p className="instructions wrapper">Make your goal a habit! For each day you complete your activity select how many times you did it. Check the progress section to see how you are doing. Please log in if you want to save your data.</p>
         {/* div to flex main content on large screens */}
