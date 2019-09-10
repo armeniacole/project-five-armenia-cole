@@ -1,9 +1,10 @@
-// Variables 
-
+// Variables for colours
 $main: #E9190f;
 $background: #FCFFF7;
 $text: #363636;
 
+
+// to hide some labels but keep for screen readers
 .visually-hidden:not(:focus):not(:active) {
     position: absolute;
     width: 1px;
@@ -15,4 +16,21 @@ $text: #363636;
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+}
+
+// styles that apply to the whole doc.
+html {
+    background: $background;
+    font-size: calc(1.5vw + 10px);
+	line-height: 1.5;
+}
+
+.App {
+  text-align: center;
+}
+
+.wrapper {
+	width: 90%;
+	margin: 0 auto;
+	max-width: 1280px;
 }

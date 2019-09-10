@@ -1,15 +1,4 @@
-html {
-    background: $background;
-    font-size: calc(1.5vw + 10px);
-	line-height: 1.5;
-}
-
-.wrapper {
-	width: 90%;
-	margin: 0 auto;
-	max-width: 1280px;
-}
-
+// Set Font styling for main elements
 h1  {
 	font-family: 'Work Sans', sans-serif;
 	font-size: 1.5rem;
@@ -41,6 +30,8 @@ p {
 	font-family: 'Work Sans', sans-serif;
 }
 
+
+// general styles for inputs
 select {
     background: $background;
 	border: none;
@@ -78,6 +69,8 @@ button {
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
+
+// Header styles
 header {
 	display: flex;
 	justify-content: space-between;
@@ -111,6 +104,8 @@ header {
 	font-size: 0.7rem;
 }
 
+
+// styles for SetGoal
 .goals {
 	width: 70%;
 	margin: 0 auto;
@@ -231,6 +226,8 @@ header {
 	}
 }
 
+
+// Main content styles
 .flex-main {
 	display: flex;
 	align-items: center;
@@ -284,6 +281,7 @@ header {
 	}
 }
 
+// footer styles
 footer {
 	background: $main;
 	position: fixed;
@@ -297,6 +295,8 @@ footer {
 	}
 }
 
+
+// minor fixes for select in SetGoal
 @media (max-width: 1100px) {
 	.goals {
 		select {
@@ -321,6 +321,7 @@ footer {
 	}
 }
 
+// for most sizes of tablets
 @media (max-width: 850px) {
 	.flex-main {
 		flex-direction: column;
@@ -362,6 +363,7 @@ footer {
 	}
 }
 
+// minor fixes for select in SetGoal
 @media (max-width: 700px) {
 	.goals {
 		select {
@@ -374,6 +376,7 @@ footer {
 	}
 }
 
+// small tablets - horizontal phones
 @media (max-width: 500px) {
 
 	.goals {
@@ -423,6 +426,7 @@ footer {
 
 }
 
+// for phones 
 @media (max-width: 420px) {
 
 	.tracker {
@@ -434,7 +438,7 @@ footer {
 		select {
 			text-align: center;
 			border-bottom: 3px solid $main;
-			padding-left: 8px;
+			padding-left: 15px;
 		}
 	}
 
@@ -449,6 +453,7 @@ footer {
 	}
 }
 
+// stop buttons from squishing under 400px
 @media (max-width: 400px) {
 	header {
 		button {
