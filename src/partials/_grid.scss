@@ -1,0 +1,9 @@
+.tracker {
+    width: 80%;
+    // padding-top: 30px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}

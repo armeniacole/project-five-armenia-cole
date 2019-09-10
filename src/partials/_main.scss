@@ -1,0 +1,458 @@
+html {
+    background: $background;
+    font-size: calc(1.5vw + 10px);
+	line-height: 1.5;
+}
+
+.wrapper {
+	width: 90%;
+	margin: 0 auto;
+	max-width: 1280px;
+}
+
+h1  {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 1.5rem;
+    color: $main;
+	margin: 10px 0;
+	text-align: left;
+}
+
+h2  {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 1.3rem;
+	color: $text;
+	margin: 0;
+	
+	span {
+		text-transform: uppercase;
+		color: $main;
+	}
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+	color: $text;
+	margin: 0;
+	font-size: 0.8rem;
+}
+
+.tracker p {
+	font-family: 'Work Sans', sans-serif;
+}
+
+select {
+    background: $background;
+	border: none;
+	border-bottom: 5px solid $main;
+	width: 100%;
+    padding: 10px;
+	color: $text;
+	padding-left: 15px;
+
+	-webkit-border-radius: 0px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.select-container {
+    position: relative;
+}
+
+.select-arrow {
+    color: $text;
+    right: 10px;
+	padding-right: 5px;
+    font-size: 1.3rem;
+    position:absolute;
+    display:block;
+    z-index: 5;
+    margin: 0;
+    pointer-events:none;
+}
+
+button {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	button {
+		height: 70%;
+		border: 3px solid $main;
+		border-radius: 10px;
+		color: $text;
+		padding: 10px 20px;
+		background: $background;
+		font-size: 0.8rem;
+
+		&:hover {
+			background: $main;
+			color: $background;
+		}
+
+		&:focus {
+			background: $main;
+			color: $background;
+		}
+	}
+}
+
+.instructions {
+	width: 60%;
+	margin: 0 auto;
+	padding: 15px 0;
+	font-size: 0.7rem;
+}
+
+.goals {
+	width: 70%;
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);	
+	z-index: 10;
+
+	label {
+		color: $background;
+		font-size: 1rem;
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+
+	input {
+		border: none;
+		margin-bottom: 5px;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid $background;
+		width: 60%;
+		background: $main;
+		padding: 10px;
+		font-size: 0.8rem;
+		text-align: center;
+		color: $background;
+		-webkit-border-radius: 0px;
+
+		&::placeholder {
+			color: $background;
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+
+		&:hover {
+			border: 5px solid $background;
+		}
+
+		&:focus {
+			border: 5px solid $background;
+		}
+	}
+
+	select {
+		width: 60%;
+		margin: 0 auto 20px;
+		// text-align: center;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid $background;
+		background: $main;
+		padding: 10px 10px 10px 30px;
+		color: $background;
+		font-size: 0.8rem;
+
+
+		&:hover {
+			border: 5px solid $background;
+		}
+
+		&:focus {
+			border: 5px solid $background;
+		}
+		
+	}
+
+	.goal-select-arrow {
+		color: $background;
+		right: 150px;
+		bottom: 37px;
+		// padding-right: 5px;
+		font-size: 1.5rem;
+		position:absolute;
+		display:block;
+		z-index: 5;
+		margin: 0;
+		pointer-events:none;
+	}
+
+	button {
+		border: none;
+		padding: 10px;
+		background: $background;
+		color: $main;
+		border-radius: 5px;
+		// box-shadow: 5px 5px #208AAE;
+
+		&:hover {
+			background: $text;
+			color: $background;
+		}
+
+		&:focus {
+			background: $text;
+			color: $background;
+		}
+
+	}
+
+	.save-label {
+		display: block;
+		font-size: 0.6rem;
+		width: 70%;
+		margin: 0 auto 10px;
+		padding-bottom: 10px;
+	}
+
+	fieldset {
+		border: none;
+		width: 65%;
+		margin: 0 auto;
+		background: $main;
+		border-radius: 10px;
+		box-shadow: 10px 10px $text;
+
+		p {
+			color: $background;
+			margin-bottom: 15px;
+
+		}
+	}
+}
+
+.flex-main {
+	display: flex;
+	align-items: center;
+	margin: 20px auto 40px;
+	
+
+	.tracker{
+		width: 60%;
+	}
+
+	.results {
+		width: 35%;
+		min-height: 45vh;
+		padding: 10px;
+		border: 2px solid $main;
+		border-radius: 5px;
+
+		span {
+			font-family: 'Work Sans', sans-serif;
+			text-transform: uppercase;
+			color: $main;
+			font-size: 0.8rem;
+		}
+
+		p {
+			font-size: 0.6rem;
+			
+		}
+
+		button {
+			border: none;
+			margin: 10px 0;
+			padding: 10px;
+			background: $main;
+			color: $background;
+			border-radius: 5px;
+			font-size: 0.6rem;
+			// box-shadow: 5px 5px #208AAE;
+
+			&:hover {
+				background: $text;
+				color: $background;
+			}
+
+			&:focus {
+				background: $text;
+				color: $background;
+			}
+
+		}
+	}
+}
+
+footer {
+	background: $main;
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+	p {
+		padding: 3px 0;
+		font-size: 0.6rem;
+		color: $background;
+	}
+}
+
+@media (max-width: 1100px) {
+	.goals {
+		select {
+			padding: 10px 10px 10px 20px;
+		}
+		.goal-select-arrow {
+			right: 120px;
+		}
+
+	}
+}
+
+@media (max-width: 950px) {
+	.goals {
+		select {
+			padding: 10px 10px 10px 10px;
+		}
+		.goal-select-arrow {
+			right: 100px;
+		}
+
+	}
+}
+
+@media (max-width: 850px) {
+	.flex-main {
+		flex-direction: column;
+
+		.tracker {
+			width: 90%;
+		}
+
+		.results {
+			margin-top: 40px;
+			width: 90%;
+			min-height: 30vh;
+			
+			span {
+				font-size: 1.3rem;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+
+			button {
+				font-size: 0.8rem;
+			}
+		}
+	}
+
+	.goals {
+		fieldset {
+			width: 90%;
+		}
+
+		select {
+			padding: 10px 10px 10px 30px;
+		}
+		.goal-select-arrow {
+			right: 150px;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.goals {
+		select {
+			padding: 10px 10px 10px 10px;
+		}
+		.goal-select-arrow {
+			right: 110px;
+		}
+
+	}
+}
+
+@media (max-width: 500px) {
+
+	.goals {
+		width: 90%;
+
+		select {
+			padding: 10px 10px 10px 40px;
+		}
+		.goal-select-arrow {
+			bottom: 25px
+		}
+
+		input, select {
+			width: 80%;
+			border-top: 3px solid transparent;
+			border-bottom: 3px solid $background;
+			margin: 10px 0;
+
+			&:hover, :focus {
+				border: 3px solid $background;
+			}
+		}
+
+	}
+
+	.instructions {
+		width: 90%;
+		font-size: 0.8rem;
+	}
+	.flex-main{
+		width: 95%;
+		margin-top: 10px;
+		.results {
+			width: 90%;
+		}
+	}
+
+	select {
+		padding-left: 5px;
+	}
+
+	.select-arrow {
+		padding-right: 0;
+		font-size: 1rem;
+		margin-top: 5px;
+	}
+
+}
+
+@media (max-width: 420px) {
+
+	.tracker {
+
+		.select-arrow {
+			display: none;
+		}
+	
+		select {
+			text-align: center;
+			border-bottom: 3px solid $main;
+			padding-left: 8px;
+		}
+	}
+
+	.goals {
+		select {
+			padding: 10px 10px 10px 30px;
+		}
+		.goal-select-arrow {
+			right: 80px;
+		}
+
+	}
+}
+
+@media (max-width: 400px) {
+	header {
+		button {
+			padding: 5px 10px;
+		}
+	}
+}
