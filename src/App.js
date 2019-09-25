@@ -232,7 +232,7 @@ class App extends Component {
             <section className="tracker">
               <p>Mon</p>
               <p>Tue</p>
-              <p>Wed</p>
+              <p>Wed</p> 
               <p>Thur</p>
               <p>Fri</p>
               <p>Sat</p>
@@ -246,6 +246,7 @@ class App extends Component {
                         key={weekIndex + dayIndex}
                         dayIndex={dayIndex}
                         weekIndex={weekIndex}
+                        userGoal={this.state.userGoal}
                         trackerFunction={this.trackerValue}
                         value={this.state.month[weekIndex][dayIndex]}
                       />
