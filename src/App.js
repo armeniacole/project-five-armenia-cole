@@ -181,6 +181,26 @@ class App extends Component {
         this.setState({
           user,
           userID: user.uid
+        }, () => {
+          const dbRef = firebase.database().ref(`users/${this.state.userID}`);
+            dbRef.on('value', (data) => {
+              if (data.val() === null){
+                const dbRefGoal = firebase
+                  .database()
+                  .ref(`users/${this.state.userID}/goal`);
+                  dbRefGoal.set({
+                    number: this.state.goalAmount,
+                    activity: this.state.userGoal,
+                  })
+                
+                const dbRefTrack = firebase
+                  .database()
+                  .ref(`users/${this.state.userID}/goal`);
+                  dbRefTrack.update({
+                    tracker: this.state.month,
+                  })
+              }
+            });
         });
       });
   }
@@ -190,7 +210,20 @@ class App extends Component {
     auth.signOut()
       .then(() => {
         this.setState({
-          user: null
+          user: null,
+          userID: "",
+          userGoal: "",
+          goalAmount: 0,
+          month: [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+          ],
+          weekOne: "",
+          weekTwo: "",
+          weekThree: "",
+          weekFour: ""
         });
       });
   }
