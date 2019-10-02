@@ -60,31 +60,43 @@ class App extends Component {
 
         }, () => {
 
-          // then grab the stuff that that user has saved in database and update state
-          const dbRef = firebase.database().ref(`users/${this.state.userID}`);
-          dbRef.on('value', (data) => {
+            // then grab the stuff that that user has saved in database and update state
+            const dbRef = firebase.database().ref(`users/${this.state.userID}`);
+            dbRef.on('value', (data) => {
 
-            const dataBase = data.val();
-            const activity = dataBase.goal.activity;
-            const number = dataBase.goal.number;
-            const tracker = dataBase.goal.tracker;
+              if (data.val() !== null){
 
-            this.setState({
-              userGoal: activity,
-              goalAmount: number,
-              month: tracker
-            }, () => {
-
-            })
-
-            // run function addWeekly to reduce the array for each week and store total in state
-            // this needs to run here for users who are logged in only
-            this.addWeekly(this.state.month[0], "weekOne");
-            this.addWeekly(this.state.month[1], "weekTwo");
-            this.addWeekly(this.state.month[2], "weekThree");
-            this.addWeekly(this.state.month[3], "weekFour");
-
-          });
+                const dataBase = data.val();
+                const activity = dataBase.goal.activity;
+                const number = dataBase.goal.number;
+                const tracker = dataBase.goal.tracker;
+    
+                this.setState(
+                  {
+                    userGoal: activity ? activity : "",
+                    goalAmount: number ? number : "",
+                    month: tracker
+                      ? tracker
+                      : [
+                          [0, 0, 0, 0, 0, 0, 0],
+                          [0, 0, 0, 0, 0, 0, 0],
+                          [0, 0, 0, 0, 0, 0, 0],
+                          [0, 0, 0, 0, 0, 0, 0]
+                        ]
+                  },
+                  () => {}
+                );
+    
+                // run function addWeekly to reduce the array for each week and store total in state
+                // this needs to run here for users who are logged in only
+                this.addWeekly(this.state.month[0], "weekOne");
+                this.addWeekly(this.state.month[1], "weekTwo");
+                this.addWeekly(this.state.month[2], "weekThree");
+                this.addWeekly(this.state.month[3], "weekFour");
+              }
+  
+            });
+          
 
         });
       }
